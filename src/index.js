@@ -2,8 +2,10 @@ const fastify = require('fastify')({
     logger:true
 });
 const productRoutes = require('./routes/products.routes')
-
+const swagger = require('./utils/swagger')
 require('./utils/mongoose');
+
+fastify.register(require('fastify-swagger'), swagger.options)
 
 fastify.get("/",(request, replay)=>{
     replay.send({hello:"World"});
