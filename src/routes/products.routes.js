@@ -1,39 +1,29 @@
-
+const productCtrl = require('../controllers/product.controller')
 
 const routes = [{
     url:'/products',
     method: 'GET',
-    handler: (request, reply)=>{
-        reply.send('products');
-    }
+    handler: productCtrl.getProduct,
 },
 {
     url:'/products/:id',
     method: 'GET',
-    handler: (request, reply)=>{
-        reply.send('single product');
-    }
+    handler: productCtrl.getById
 },
 {
     url:'/products',
     method: 'POST',
-    handler: (request, reply)=>{
-        reply.send('Creating a product');
-    }
-},
-{
-    url:'/products/:id',
-    method: 'DELETE',
-    handler: (request, reply)=>{
-        reply.send('Deleting a product');
-    }
+    handler: productCtrl.createProduct,
 },
 {
     url:'/products/:id',
     method: 'PUT',
-    handler: (request, reply)=>{
-        reply.send('Updating a product');
-    }
+    handler: productCtrl.editProduct
+},
+{
+    url:'/products/:id',
+    method: 'DELETE',
+    handler: productCtrl.deleteProduct
 },
 ]
 

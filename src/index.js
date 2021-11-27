@@ -3,6 +3,8 @@ const fastify = require('fastify')({
 });
 const productRoutes = require('./routes/products.routes')
 
+require('./utils/mongoose');
+
 fastify.get("/",(request, replay)=>{
     replay.send({hello:"World"});
 })
